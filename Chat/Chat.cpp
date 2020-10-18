@@ -6,6 +6,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_DEPRECATE
 #pragma warning(disable : 4996)
+#include "Structures.h"
+
 
 int main()
 {
@@ -21,12 +23,5 @@ int main()
 		fgets(buffer, 127, file);
 		printf("%s", buffer);
 		fclose(file);
-		_getch();
+		_getch(); 
 }
-//struct ClientConfiguration;
-	//{
-	//	char* server_ip;
-	//	char* username;
-	//	int password;
-	//	double rating;
-	//};
