@@ -8,20 +8,11 @@
 #pragma warning(disable : 4996)
 #include "Structures.h"
 
-
 int main()
 {
-
 		FILE* file;
-		char buffer[128];
-
-		file = fopen("C:/d/test.txt", "w");
+		file = fopen("C:\Chat\Chat\client.cfg", "w");
 		printf("Last error: %d", GetLastError());
-		fprintf(file, "Hello, World!");
-		fclose(file);
-		file = fopen("C:/d/test.txt", "r");
-		fgets(buffer, 127, file);
-		printf("%s", buffer);
 		fclose(file);
 		_getch(); 
 }
