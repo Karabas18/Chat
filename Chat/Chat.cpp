@@ -12,14 +12,14 @@ int main()
 {
 		FILE* file;
 		file = fopen("C:\Chat\Chat\client.cfg", "w");
-		if (file == NULL)
+		if (file == NULL) // если не смогли открыть файл
 		{
 			printf("Nelzya otkrit file. Oshibka: %d\n", GetLastError());
 			exit(1);
 		}
 		else
 			printf("Uspeshno otkrit file!");
-		
+		// тут поставишь ту штуку с циклами
 		fclose(file);
 		return 0;
 }

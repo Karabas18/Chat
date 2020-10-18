@@ -1,7 +1,7 @@
 #pragma once
 
 
-struct clientconfiguration
+struct ClientConfiguration
 {
 	char* server_ip;
 	char* username;
