@@ -12,7 +12,14 @@ int main()
 {
 		FILE* file;
 		file = fopen("C:\Chat\Chat\client.cfg", "w");
-		printf("Last error: %d", GetLastError());
+		if (file == NULL)
+		{
+			printf("Nelzya otkrit file. Oshibka: %d\n", GetLastError());
+			exit(1);
+		}
+		else
+			printf("Uspeshno otkrit file!");
+		
 		fclose(file);
-		_getch(); 
+		return 0;
 }
