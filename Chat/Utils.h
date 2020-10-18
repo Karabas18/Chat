@@ -8,3 +8,6 @@ float string_to_float(const char* string); // перевод строки в дробное число. до
 
 int is_str_equal(const char* str1, const char* str2); // возвращает 1 когда строки полностью идентичны, иначе 0
 
+int string_to_int(const char* string);
+
+int string_length(const char* line);

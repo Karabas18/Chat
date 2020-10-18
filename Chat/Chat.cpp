@@ -35,7 +35,7 @@ int main()
 	// В консоль должно вывестись те же самые значение как и в файле. Иначе сообщение об ошибке
 	printf("Uspeshno zagruzhen config.\n");
 	printf("User name: %s\n", config.username); // и почему тут точка
-	printf("User passowrd: %s\n", config.password);
+	printf("User passowrd: %d\n", config.password);
 	printf("Server ip: %s\n", config.server_ip);
 	printf("User rating: %f\n", config.rating);
 

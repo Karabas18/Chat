@@ -5,6 +5,6 @@ struct ClientConfiguration
 {
 	char* server_ip;
 	char* username;
-	int password;
-	double rating;
+	int password; 
+	float rating;
 };
