@@ -7,19 +7,38 @@
 #define _CRT_SECURE_NO_DEPRECATE
 #pragma warning(disable : 4996)
 #include "Structures.h"
+#include "Utils.h" // загружаем функции из другого файла
+
+#define MAX_BUFFER_SIZE 228
 
 int main()
 {
-		FILE* file;
-		file = fopen("C:\Chat\Chat\client.cfg", "w");
-		if (file == NULL) // если не смогли открыть файл
+	ClientConfiguration config = { 0 }; // зануляем сразу все поля в структуре
+
+	FILE* file;
+	file = fopen("C:\Chat\Chat\client.cfg", "w");
+	if (file == NULL) // если не смогли открыть файл
+	{
+		printf("Nelzya otkrit file. Oshibka: %d\n", GetLastError());
+		exit(1);
+	}
+	else
+		printf("Uspeshno otkrit file!");
+	char buffer[MAX_BUFFER_SIZE];
+	while (fgets(buffer, MAX_BUFFER_SIZE, file) != NULL) {
+		int success = parse_line(&config, buffer); // пояснишь за это
+		if (success != 0) // если не смогли распарсить
 		{
-			printf("Nelzya otkrit file. Oshibka: %d\n", GetLastError());
-			exit(1);
+			// обработка ошибки
 		}
-		else
-			printf("Uspeshno otkrit file!");
-		// тут поставишь ту штуку с циклами
-		fclose(file);
-		return 0;
+	}
+	// В консоль должно вывестись те же самые значение как и в файле. Иначе сообщение об ошибке
+	printf("Uspeshno zagruzhen config.\n");
+	printf("User name: %s\n", config.username);
+	printf("User passowrd: %s\n", config.password);
+	printf("Server ip: %s\n", config.server_ip);
+	printf("User rating: %f\n", config.rating);
+
+	fclose(file);
+	return 0;
 }

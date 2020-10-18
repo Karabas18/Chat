@@ -3,6 +3,16 @@
 
 int parse_line(ClientConfiguration* configuration, char* line) // анализируем нашу строку на предмет нужных нам полей
 {
+	const int CORRECT_CLASSES_COUNT = 4; // всего 4 валидного поля
+
+	const char* correct_keys[] = { // объявляем массив из строк, в котором статически храним названия полей, которые могут быть в файле и правильно их будет разбирать
+		"username",
+		"password",
+		"server_ip",
+		"rating"
+	};
+
+
 	// псевдокод
 	// мы должны получить из строки две строки. ключ и значение(как в формате) они должны быть разеделены : пробелом
 	char* key = NULL,
@@ -28,10 +38,12 @@ int parse_line(ClientConfiguration* configuration, char* line) // анализируем на
 float string_to_float(const char* string) // перевод строки в дробное число. должно работать как с точной, так с запятой и положительными и отрицательными значениями
 {
 	// твоя реализация
+	return -1; // zaglushka
 }
 
 
 int is_str_equal(const char* str1, const char* str2) // возвращает 1 когда строки полностью идентичны, иначе 0
 {
 	//твоя реализация
+	return 1; // заглушка для компиляции
 }
