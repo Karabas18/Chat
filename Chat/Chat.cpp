@@ -16,7 +16,7 @@ int main()
 	ClientConfiguration config = { 0 }; // зануляем сразу все поля в структуре
 
 	FILE* file;
-	file = fopen("C:\Chat\Chat\client.cfg", "w");
+	file = fopen("C:\\Chat\\Chat\\client.cfg", "r"); 
 	if (file == NULL) // если не смогли открыть файл
 	{
 		printf("Nelzya otkrit file. Oshibka: %d\n", GetLastError());
@@ -25,20 +25,20 @@ int main()
 	else
 		printf("Uspeshno otkrit file!");
 	char buffer[MAX_BUFFER_SIZE];
-	while (fgets(buffer, MAX_BUFFER_SIZE, file) != NULL) {
+	while (fgets(buffer, MAX_BUFFER_SIZE, file)) {
 		int success = parse_line(&config, buffer); // пояснишь за это
 		if (success != 0) // если не смогли распарсить
 		{
-			// обработка ошибки
+			// обработка ошибки 
 		}
 	}
 	// В консоль должно вывестись те же самые значение как и в файле. Иначе сообщение об ошибке
 	printf("Uspeshno zagruzhen config.\n");
-	printf("User name: %s\n", config.username);
+	printf("User name: %s\n", config.username); // и почему тут точка
 	printf("User passowrd: %s\n", config.password);
 	printf("Server ip: %s\n", config.server_ip);
 	printf("User rating: %f\n", config.rating);
 
 	fclose(file);
 	return 0;
-}
+} 
